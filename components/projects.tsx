@@ -23,7 +23,7 @@ const projects = [
     description:
       "GIS-based wildfire risk assessment and fuel management planning across multi-jurisdictional forest lands.",
     stats: "1.000.000 ha",
-    image: "/Forest-Fires.png",
+    image: "/Forest-Fires.PNG",
   },
 ]
 
