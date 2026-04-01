@@ -50,13 +50,13 @@ export function Hero() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-gray-600 text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" asChild className="border-gray-600 text-white hover:bg-primary/90">
                 <Link href="#services">
                   Explore Services
                 </Link>
               </Button>
             </div>
-
+            
             <div className="mt-12 grid grid-cols-3 gap-6">
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">10+</div>
