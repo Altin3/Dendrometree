@@ -43,19 +43,37 @@ export function Hero() {
               We help municipalities, agencies, and landowners make data-driven decisions for their forests.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="#contact">
-                  Get a Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="border-gray-600 text-white hover:bg-primary/90">
-                <Link href="#services">
-                  Explore Services
-                </Link>
-              </Button>
-            </div>
+           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+  <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+    <Link href="#contact">
+      Get a Consultation
+      <ArrowRight className="ml-2 h-4 w-4" />
+    </Link>
+  </Button>
+
+  <Button
+    size="lg"
+    variant="outline"
+    asChild
+    className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
+  >
+    <Link href="#services">
+      Explore Services
+    </Link>
+  </Button>
+
+  <Button
+    size="lg"
+    variant="outline"
+    asChild
+    className="bg-transparent border-primary text-primary hover:bg-primary/10 hover:text-primary"
+  >
+    <Link href="/tree-volume-calculator">
+      Open Calculator
+    </Link>
+  </Button>
+</div>
+
             
             <div className="mt-12 grid grid-cols-3 gap-6">
               <div className="text-center lg:text-left">
