@@ -59,15 +59,15 @@ export function Hero() {
 
             <div className="mt-12 grid grid-cols-3 gap-6">
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-primary">500+</div>
+                <div className="text-3xl font-bold text-primary">10+</div>
                 <div className="text-sm text-gray-400">Projects Completed</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-primary">15+</div>
+                <div className="text-3xl font-bold text-primary">5+</div>
                 <div className="text-sm text-gray-400">Years Experience</div>
               </div>
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-primary">50M+</div>
+                <div className="text-3xl font-bold text-primary">100K+</div>
                 <div className="text-sm text-gray-400">Hectares Mapped</div>
               </div>
             </div>
