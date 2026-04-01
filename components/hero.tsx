@@ -69,7 +69,7 @@ export function Hero() {
     className="bg-transparent border-primary text-primary hover:bg-primary/10 hover:text-primary"
   >
     <Link href="/tree-volume-calculator">
-      Open Calculator
+     Tree Volume Calculator
     </Link>
   </Button>
 </div>
