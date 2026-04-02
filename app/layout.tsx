@@ -8,7 +8,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 
 export const metadata: Metadata = {
   title: 'DENDROMETREE | Professional Forestry & GIS Services',
-  description: 'Expert forestry consulting, forest inventory, GIS mapping, remote sensing, and sustainable forest management solutions for municipalities, agencies, and private clients.'
+  description: 'Expert forestry consulting, forest inventory, GIS mapping, remote sensing, and sustainable forest management solutions for municipalities, agencies, and private clients.' ,
   icons: {
     icon: [
       {
