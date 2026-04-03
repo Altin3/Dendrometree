@@ -72,7 +72,7 @@ export function Contact() {
                   <div>
                     <div className="text-sm text-muted-foreground">Office</div>
                     <address className="not-italic text-foreground">
-                      Ferizaj, Kosova
+                      Kosovo
                     </address>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export function Contact() {
                 Response Time
               </h4>
               <p className="text-sm text-muted-foreground">
-                We typically respond to inquiries within 24 business hours. For urgent matters, please call us directly.
+                We typically respond to inquiries within 8 business hours. For urgent matters, please call us directly.
               </p>
             </div>
           </div>
