@@ -59,8 +59,8 @@ export function Contact() {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Phone</div>
-                    <a href="tel:+38345563836" className="text-foreground hover:text-primary transition-colors">
-                      (+383) 45 563836
+                    <a href="tel:" className="text-foreground hover:text-primary transition-colors">
+                      (+383)
                     </a>
                   </div>
                 </div>
