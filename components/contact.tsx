@@ -60,7 +60,7 @@ export function Contact() {
                   <div>
                     <div className="text-sm text-muted-foreground">Phone</div>
                     <a href="tel:" className="text-foreground hover:text-primary transition-colors">
-                      (+383)
+                      (+383 45 563836)
                     </a>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export function Contact() {
                   <div>
                     <div className="text-sm text-muted-foreground">Office</div>
                     <address className="not-italic text-foreground">
-                      Kosovo
+                      Kosovo, Ferizaj
                     </address>
                   </div>
                 </div>
