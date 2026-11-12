@@ -4,6 +4,7 @@ import { Services } from "@/components/services"
 import { About } from "@/components/about"
 import { Process } from "@/components/process"
 import { Projects } from "@/components/projects"
+import { ActivitiesPreview } from "@/components/activities/activities-preview"
 import { GISCapabilities } from "@/components/gis-capabilities"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -17,6 +18,7 @@ export default function Home() {
       <About />
       <Process />
       <Projects />
+      <ActivitiesPreview />
       <GISCapabilities />
       <Contact />
       <Footer />

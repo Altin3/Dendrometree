@@ -13,6 +13,7 @@ const footerLinks = {
     { label: "About Us", href: "#about" },
     { label: "Our Process", href: "#process" },
     { label: "Case Studies", href: "#projects" },
+    { label: "Activities & News", href: "/activities" },
     { label: "Contact", href: "#contact" },
   ],
   resources: [
