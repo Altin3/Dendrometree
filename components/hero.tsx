@@ -1,9 +1,12 @@
+import { siteCopy, type SiteLanguage } from "@/lib/site-i18n"
+import { sectionHref, calculatorHref } from "@/lib/site-i18n"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, TreePine, Map, BarChart3 } from "lucide-react"
 
-export function Hero() {
+export function Hero({ language }: { language: SiteLanguage }) {
+  const t = siteCopy[language].hero
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[oklch(0.13_0.03_195)]">
       {/* Logo Background */}
@@ -31,22 +34,21 @@ export function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
               <TreePine className="h-4 w-4" />
-              <span className="text-sm font-medium">Sustainable Forest Management</span>
+              <span className="text-sm font-medium">{t.badge}</span>
             </div>
             
             <h1 className="font-[family-name:var(--font-heading)] text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance">
-              Expert Forestry & GIS Solutions
+              {t.title}
             </h1>
             
             <p className="mt-6 text-lg text-gray-300 max-w-xl leading-relaxed text-pretty">
-              Precision forest inventory, advanced GIS mapping, and sustainable management plans. 
-              We help municipalities, agencies, and landowners make data-driven decisions for their forests.
+              {t.text}
             </p>
 
            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
   <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-    <Link href="#contact">
-      Get a Consultation
+    <Link href={sectionHref(language,"contact")}>
+      {t.consultation}
       <ArrowRight className="ml-2 h-4 w-4" />
     </Link>
   </Button>
@@ -57,8 +59,8 @@ export function Hero() {
     asChild
     className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white"
   >
-    <Link href="#services">
-      Explore Services
+    <Link href={sectionHref(language,"services")}>
+      {t.explore}
     </Link>
   </Button>
 
@@ -68,8 +70,8 @@ export function Hero() {
     asChild
     className="bg-transparent border-primary text-primary hover:bg-primary/10 hover:text-primary"
   >
-    <Link href="/tree-volume-calculator">
-     Tree Volume Calculator
+    <Link href={calculatorHref(language)}>
+     {t.calculator}
     </Link>
   </Button>
 </div>
@@ -78,15 +80,15 @@ export function Hero() {
             <div className="mt-12 grid grid-cols-3 gap-6">
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">10+</div>
-                <div className="text-sm text-gray-400">Projects Completed</div>
+                <div className="text-sm text-gray-400">{t.completed}</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">5+</div>
-                <div className="text-sm text-gray-400">Years Experience</div>
+                <div className="text-sm text-gray-400">{t.years}</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-primary">100K+</div>
-                <div className="text-sm text-gray-400">Hectares Mapped</div>
+                <div className="text-sm text-gray-400">{t.mapped}</div>
               </div>
             </div>
           </div>
@@ -100,7 +102,7 @@ export function Hero() {
                 <div className="grid grid-cols-2 gap-6 p-8">
                   <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur">
                     <TreePine className="h-8 w-8 text-primary" />
-                    <span className="text-xs text-gray-300">Inventory</span>
+                    <span className="text-xs text-gray-300">{t.inventory}</span>
                   </div>
                   <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur">
                     <Map className="h-8 w-8 text-primary" />
@@ -108,7 +110,7 @@ export function Hero() {
                   </div>
                   <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur">
                     <BarChart3 className="h-8 w-8 text-primary" />
-                    <span className="text-xs text-gray-300">Analytics</span>
+                    <span className="text-xs text-gray-300">{t.analytics}</span>
                   </div>
                   <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 backdrop-blur">
                     <svg className="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -116,7 +118,7 @@ export function Hero() {
                       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                       <path d="M2 12h20" />
                     </svg>
-                    <span className="text-xs text-gray-300">Remote Sensing</span>
+                    <span className="text-xs text-gray-300">{t.remote}</span>
                   </div>
                 </div>
               </div>

@@ -1,35 +1,26 @@
+import { siteCopy, type SiteLanguage } from "@/lib/site-i18n"
 import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
 
-const highlights = [
-  "Certified professional foresters with advanced degrees",
-  "State-of-the-art GIS and remote sensing capabilities",
-  "Proven track record with public and private clients",
-  "Commitment to sustainable forestry practices",
-  "ISO-certified quality management processes",
-  "Regional expertise across diverse forest ecosystems",
-]
 
-export function About() {
+
+export function About({ language }: { language: SiteLanguage }) {
+  const t = siteCopy[language].about
+  const highlights = t.highlights
   return (
     <section id="about" className="py-24 bg-muted/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">About Us</span>
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">{t.eyebrow}</span>
             <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
-              A trusted partner in sustainable forest management
+              {t.title}
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed text-pretty">
-              DENDROMETREE is a specialized forestry consulting firm delivering expert solutions in 
-              forest inventory, GIS mapping, and sustainable management planning. Founded by experienced 
-              foresters and geospatial professionals, we combine deep ecological knowledge with 
-              cutting-edge technology.
+              {t.p1}
             </p>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed text-pretty">
-              Our mission is to help landowners, municipalities, and organizations make informed 
-              decisions that balance environmental stewardship with economic viability. We believe 
-              that well-managed forests are essential to our planet&apos;s future.
+              {t.p2}
             </p>
             
             <div className="mt-10 grid sm:grid-cols-2 gap-4">
@@ -57,11 +48,10 @@ export function About() {
                     />
                   </div>
                   <blockquote className="text-white/90 text-lg italic">
-                    &ldquo;Our approach combines scientific rigor with practical solutions, 
-                    ensuring every project delivers measurable results.&rdquo;
+                    “{t.quote}”
                   </blockquote>
                   <p className="mt-4 text-primary font-medium">
-                    DENDROMETREE Team
+                    {t.team}
                   </p>
                 </div>
               </div>

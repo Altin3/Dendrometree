@@ -1,90 +1,22 @@
 "use client"
-
 import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-
-const navItems = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Process", href: "#process" },
-  { label: "Projects", href: "#projects" },
-  { label: "Activities", href: "/activities" },
-  { label: "GIS", href: "#gis" },
-]
-
-export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/logo.jpeg"
-              alt="DENDROMETREE"
-              width={40}
-              height={40}
-              className="rounded-full"
-              style={{ width: 40, height: 40 }}
-            />
-            <span className="font-[family-name:var(--font-heading)] text-lg font-semibold tracking-wide text-foreground">
-              DENDROMETREE
-            </span>
-          </Link>
-
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-4">
-            <Button asChild>
-              <Link href="#contact">Contact Us</Link>
-            </Button>
-          </div>
-
-          <button
-            type="button"
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </div>
-
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border">
-          <div className="px-4 py-4 space-y-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Button asChild className="w-full mt-4">
-              <Link href="#contact" onClick={() => setMobileMenuOpen(false)}>
-                Contact Us
-              </Link>
-            </Button>
-          </div>
-        </div>
-      )}
-    </header>
-  )
+import { siteCopy, sectionHref, homeHref, type SiteLanguage } from "@/lib/site-i18n"
+export function Header({language,alternateHref}:{language:SiteLanguage;alternateHref?:string}){
+ const [open,setOpen]=useState(false)
+ const t=siteCopy[language].nav
+ const other:SiteLanguage=language==="sq"?"en":"sq"
+ const links=[[t.services,"services"],[t.about,"about"],[t.process,"process"],[t.projects,"projects"],[t.gis,"gis"]]
+ const switchHref=alternateHref??homeHref(other)
+ return <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+  <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+   <Link href={homeHref(language)} className="flex shrink-0 items-center gap-2"><Image src="/logo.jpeg" alt="DENDROMETREE" width={38} height={38} className="rounded-full"/><span className="text-base font-semibold text-foreground sm:text-lg">DENDROMETREE</span></Link>
+   <nav className="hidden items-center gap-4 lg:flex">{links.map(([label,section])=><Link key={section} href={sectionHref(language,section)} className="text-sm font-medium text-muted-foreground hover:text-primary">{label}</Link>)}<Link href={language==="sq"?"/aktivitetet":"/en/activities"} className="text-sm font-medium text-muted-foreground hover:text-primary">{t.activities}</Link></nav>
+   <div className="hidden items-center gap-3 lg:flex"><div className="flex items-center rounded-full border border-border p-1" aria-label="Gjuha / Language">{language==="sq"?<span aria-current="page" className="rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">SQ</span>:<Link href={switchHref} hrefLang="sq" className="px-3 py-1 text-xs font-semibold">SQ</Link>}{language==="en"?<span aria-current="page" className="rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">EN</span>:<Link href={switchHref} hrefLang="en" className="px-3 py-1 text-xs font-semibold">EN</Link>}</div><Link href={sectionHref(language,"contact")} className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">{t.contactUs}</Link></div>
+   <div className="flex items-center gap-2 lg:hidden"><Link href={switchHref} hrefLang={other} className="rounded-md border border-border px-3 py-2 text-sm font-semibold text-primary">{other.toUpperCase()}</Link><button type="button" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label={open?"Close menu":"Open menu"} className="p-2">{open?<X/>:<Menu/>}</button></div>
+  </div>
+  {open&&<nav className="flex flex-col border-t border-border bg-background px-5 py-4 lg:hidden">{links.map(([label,section])=><Link key={section} href={sectionHref(language,section)} onClick={()=>setOpen(false)} className="px-3 py-2 text-sm">{label}</Link>)}<Link href={language==="sq"?"/aktivitetet":"/en/activities"} onClick={()=>setOpen(false)} className="px-3 py-2 text-sm">{t.activities}</Link><Link href={sectionHref(language,"contact")} onClick={()=>setOpen(false)} className="px-3 py-2 font-semibold text-primary">{t.contactUs}</Link></nav>}
+ </header>
 }

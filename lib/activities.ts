@@ -28,7 +28,7 @@ export function getPublishedActivity(slug: string): Activity | undefined {
 }
 
 export function activityUrl(language: Language, slug?: string): string {
-  const base = language === "sq" ? "/aktivitetet" : "/activities"
+  const base = language === "sq" ? "/aktivitetet" : "/en/activities"
   return slug ? `${base}/${encodeURIComponent(slug)}` : base
 }
 

@@ -8,20 +8,21 @@ import { ActivitiesPreview } from "@/components/activities/activities-preview"
 import { GISCapabilities } from "@/components/gis-capabilities"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import type { SiteLanguage } from "@/lib/site-i18n"
 
-export default function Home() {
+export function HomePage({ language }: { language: SiteLanguage }) {
   return (
     <main>
-      <Header />
-      <Hero />
-      <Services />
-      <About />
-      <Process />
-      <Projects />
-      <ActivitiesPreview />
-      <GISCapabilities />
-      <Contact />
-      <Footer />
+      <Header language={language} />
+      <Hero language={language} />
+      <Services language={language} />
+      <About language={language} />
+      <Process language={language} />
+      <Projects language={language} />
+      <ActivitiesPreview language={language} />
+      <GISCapabilities language={language} />
+      <Contact language={language} />
+      <Footer language={language} />
     </main>
   )
 }

@@ -1,50 +1,22 @@
+import { siteCopy, type SiteLanguage } from "@/lib/site-i18n"
 import { TreePine, Map, Satellite, ClipboardList, FileText, Users } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-const services = [
-  {
-    icon: TreePine,
-    title: "Forest Inventory",
-    description: "Comprehensive field measurements and statistical analysis to quantify forest resources, species composition, and stand characteristics.",
-  },
-  {
-    icon: FileText,
-    title: "Management Plans",
-    description: "Strategic long-term forest management plans that balance ecological sustainability, economic returns, and regulatory compliance.",
-  },
-  {
-    icon: Map,
-    title: "GIS & Mapping",
-    description: "Advanced geospatial analysis, custom mapping solutions, and spatial data management for informed decision-making.",
-  },
-  {
-    icon: Satellite,
-    title: "Remote Sensing",
-    description: "Satellite and aerial imagery analysis for forest health monitoring, change detection, and landscape-scale assessments.",
-  },
-  {
-    icon: ClipboardList,
-    title: "Field Data Collection",
-    description: "Professional field crews equipped with modern technology for accurate, efficient data collection across any terrain.",
-  },
-  {
-    icon: Users,
-    title: "Consulting Services",
-    description: "Expert guidance on forest certification, carbon credits, biodiversity conservation, and sustainable harvesting practices.",
-  },
-]
+const serviceIcons = [TreePine, FileText, Map, Satellite, ClipboardList, Users]
 
-export function Services() {
+export function Services({ language }: { language: SiteLanguage }) {
+  const t = siteCopy[language].services
+  const services = t.cards.map((item,index)=>({...item,icon:serviceIcons[index]}))
   return (
     <section id="services" className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">What We Do</span>
+          <span className="text-sm font-medium text-primary uppercase tracking-wider">{t.eyebrow}</span>
           <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            Our collection of services spans the full scope of forest management
+            {t.title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            From initial inventory to long-term planning, we provide comprehensive solutions tailored to your specific needs.
+            {t.description}
           </p>
         </div>
 

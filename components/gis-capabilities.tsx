@@ -1,44 +1,25 @@
+import { siteCopy, type SiteLanguage } from "@/lib/site-i18n"
+import { sectionHref } from "@/lib/site-i18n"
 import { Layers, Database, Globe, Cpu } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
-const capabilities = [
-  {
-    icon: Layers,
-    title: "Multi-Layer Analysis",
-    description: "Complex spatial analysis combining terrain, vegetation, hydrology, and infrastructure data.",
-  },
-  {
-    icon: Database,
-    title: "Data Management",
-    description: "Enterprise-grade geodatabase solutions for organizing, storing, and sharing geospatial assets.",
-  },
-  {
-    icon: Globe,
-    title: "Web Mapping",
-    description: "Interactive web maps and dashboards for real-time forest monitoring and stakeholder access.",
-  },
-  {
-    icon: Cpu,
-    title: "AI Integration",
-    description: "Machine learning models for automated feature extraction and predictive forest modeling.",
-  },
-]
+const capabilityIcons = [Layers, Database, Globe, Cpu]
 
-export function GISCapabilities() {
+export function GISCapabilities({ language }: { language: SiteLanguage }) {
+  const t = siteCopy[language].gis
+  const capabilities = capabilityIcons.map((icon,index)=>({icon,title:[t.layers,t.data,t.web,t.ai][index],description:[t.layersDesc,t.dataDesc,t.webDesc,t.aiDesc][index]}))
   return (
     <section id="gis" className="py-24 bg-[oklch(0.13_0.03_195)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">Technology</span>
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">{t.eyebrow}</span>
             <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-white text-balance">
-              Advanced GIS & Mapping Capabilities
+              {t.title}
             </h2>
             <p className="mt-6 text-lg text-gray-300 leading-relaxed text-pretty">
-              Our geospatial technology stack combines industry-leading GIS software with custom 
-              solutions tailored to forestry applications. From satellite imagery processing to 
-              3D terrain modeling, we deliver insights that drive better forest management decisions.
+              {t.description}
             </p>
             
             <div className="mt-10 space-y-6">
@@ -61,7 +42,7 @@ export function GISCapabilities() {
 
             <div className="mt-10">
               <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="#contact">Discuss Your GIS Needs</Link>
+                <Link href={sectionHref(language,"contact")}>{t.cta}</Link>
               </Button>
             </div>
           </div>
@@ -90,15 +71,15 @@ export function GISCapabilities() {
                   <div className="absolute bottom-4 left-4 bg-black/40 backdrop-blur rounded-lg p-3 text-xs text-gray-300">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-3 h-3 rounded bg-primary/40" />
-                      <span>Forest Cover</span>
+                      <span>{t.forest}</span>
                     </div>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-3 h-3 rounded bg-primary/60" />
-                      <span>Protected Areas</span>
+                      <span>{t.protected}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-primary/80" />
-                      <span>Sample Points</span>
+                      <span>{t.points}</span>
                     </div>
                   </div>
                 </div>
