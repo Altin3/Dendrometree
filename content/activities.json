@@ -1,5 +1,57 @@
 [
   {
+    "slug": "inventarizimi-pyjor-dy-plane-menaxhuese-8500-ha",
+    "date": "2026-11-12",
+    "status": "draft",
+    "category": {
+      "sq": "Inventarizimi pyjor",
+      "en": "Forest inventory"
+    },
+    "title": {
+      "sq": "Inventarizimi pyjor në terren – Përfundimi me sukses i dy planeve të menaxhimit",
+      "en": "Field Forest Inventory – Successful Completion of Two Forest Management Plans"
+    },
+    "summary": {
+      "sq": "DENDROMETREE përfundoi inventarizimin pyjor në terren për dy plane menaxhuese që mbulojnë rreth 8,500 hektarë, me rreth 1,615 sipërfaqe provuese, 8,800 drurë të matur dhe mbi 20 lloje drunore.",
+      "en": "DENDROMETREE completed field forest inventory work for two management plans covering approximately 8,500 hectares, with around 1,615 sample plots, 8,800 measured trees and more than 20 tree species."
+    },
+    "paragraphs": {
+      "sq": [
+        "Ekipi profesional i DENDROMETREE ka përfunduar me sukses punimet e inventarizimit pyjor në terren, në kuadër të hartimit të dy planeve të menaxhimit të pyjeve, në një sipërfaqe të përgjithshme prej rreth 8,500 hektarësh.",
+        "Gjatë punimeve janë realizuar rreth 1,615 sipërfaqe provuese, janë matur rreth 8,800 drurë dhe janë evidentuar mbi 20 lloje drunore. Të dhënat janë grumbulluar përmes matjeve në terren dhe përdorimit të pajisjeve bashkëkohore.",
+        "Analizat për NJM Vërbesh–Kashtanjevë tregojnë se Ahu (Fagus sylvatica) përbën 75.1% të përbërjes së paraqitur në grafik, i ndjekur nga Hartina (Pinus sylvestris) me 6.9%, Pisha e zezë (Pinus nigra) me 4.6%, Rrobulli (Pinus heldreichii) me 2.6%, Hormoqi (Picea abies) me 1.4% dhe llojet e tjera me 9.4%.",
+        "Në NJM V. Vrh–Kriva Reka–Kamenicë mbizotërojnë Bungu (Quercus petraea) me 31.5%, Qarri (Quercus cerris) me 28.1%, Ahu (Fagus sylvatica) me 19.1%, Shkoza (Carpinus orientalis) me 9.4% dhe Pisha e zezë (Pinus nigra) me 6.0%. Shpardhi (Quercus frainetto) përbën 1.4%, Hartina (Pinus sylvestris) 1.1% dhe llojet e tjera 3.5%.",
+        "Të dhënat nga inventarizimi përbëjnë bazë të rëndësishme për vlerësimin e gjendjes së pyjeve, planifikimin e masave silvikulturore dhe menaxhimin e qëndrueshëm të resurseve pyjore.",
+        "DENDROMETREE – Profesionalizëm, saktësi dhe teknologji në shërbim të pyjeve."
+      ],
+      "en": [
+        "The professional team at DENDROMETREE has successfully completed field forest inventory activities as part of the preparation of two forest management plans covering a total area of approximately 8,500 hectares.",
+        "The fieldwork included approximately 1,615 sample plots, around 8,800 measured trees and the recording of more than 20 tree species. Data were collected through field measurements supported by modern equipment.",
+        "The species composition illustrated for the Vërbesh–Kashtanjevë Forest Management Unit is dominated by European beech (Fagus sylvatica) at 75.1%, followed by Scots pine (Pinus sylvestris) at 6.9%, black pine (Pinus nigra) at 4.6%, Bosnian pine (Pinus heldreichii) at 2.6%, Norway spruce (Picea abies) at 1.4%, and other species at 9.4%.",
+        "In the V. Vrh–Kriva Reka–Kamenicë Forest Management Unit, the main species shown are sessile oak (Quercus petraea) at 31.5%, Turkey oak (Quercus cerris) at 28.1%, European beech (Fagus sylvatica) at 19.1%, Oriental hornbeam (Carpinus orientalis) at 9.4%, and black pine (Pinus nigra) at 6.0%. Hungarian oak (Quercus frainetto) accounts for 1.4%, Scots pine (Pinus sylvestris) for 1.1%, and other species for 3.5%.",
+        "The field inventory data provide an important basis for assessing forest conditions, planning silvicultural measures and supporting the sustainable management of forest resources.",
+        "DENDROMETREE – Professionalism, precision and technology in the service of forests."
+      ]
+    },
+    "coverImage": null,
+    "images": [
+      {
+        "src": "/activities/llojet-verbesh-kashtanjeve.svg",
+        "alt": {
+          "sq": "Përbërja e llojeve kryesore drunore në NJM Vërbesh–Kashtanjevë",
+          "en": "Main tree species composition in the Vërbesh–Kashtanjevë management unit"
+        }
+      },
+      {
+        "src": "/activities/llojet-kamenice.svg",
+        "alt": {
+          "sq": "Përbërja e llojeve kryesore drunore në NJM V. Vrh–Kriva Reka–Kamenicë",
+          "en": "Main tree species composition in the V. Vrh–Kriva Reka–Kamenicë management unit"
+        }
+      }
+    ]
+  },
+  {
     "slug": "shembull-publikimi",
     "date": "2026-11-12",
     "status": "draft",
