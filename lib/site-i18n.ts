@@ -90,7 +90,7 @@ export const siteCopy = {
       data:"Menaxhimi i të dhënave",dataDesc:"Zgjidhje për organizimin, ruajtjen dhe shpërndarjen e të dhënave gjeohapësinore.",
       web:"Harta interaktive",webDesc:"Harta dhe panele interaktive për monitorimin e pyjeve dhe qasjen në të dhëna.",
       ai:"Integrimi i inteligjencës artificiale",aiDesc:"Modele për nxjerrjen automatike të informacionit dhe modelimin parashikues të pyjeve.",
-      forest:"Mbulesa pyjore",protected:"Zona të mbrojtura",points:"Sipërfaqe provuese",
+      forest:"Mbulesa pyjore",protected:"Zona të mbrojtura",points:"Sipërfaqe prove (matje)",
     },
     contact: {
       eyebrow:"Na kontaktoni",title:"Diskutojmë projektin tuaj",
