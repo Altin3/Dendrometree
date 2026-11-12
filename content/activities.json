@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "shembull-publikimi",
+    "date": "2026-11-12",
+    "status": "draft",
+    "category": {
+      "sq": "Aktivitete",
+      "en": "Activities"
+    },
+    "title": {
+      "sq": "MODEL — Zëvendëso me një aktivitet real",
+      "en": "TEMPLATE — Replace with an actual activity"
+    },
+    "summary": {
+      "sq": "Ky është vetëm model për plotësim; nuk shfaqet në uebfaqe derisa të publikohet.",
+      "en": "This is an unpublished example for editing; it is not visible on the website."
+    },
+    "paragraphs": {
+      "sq": [
+        "Përshkruaj aktivitetin e realizuar, datën, vendndodhjen dhe rezultatet e verifikuara."
+      ],
+      "en": [
+        "Describe the completed activity, date, location, and verified results."
+      ]
+    },
+    "coverImage": null,
+    "images": []
+  }
+]

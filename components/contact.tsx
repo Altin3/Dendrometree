@@ -1,4 +1,5 @@
 "use client"
+import { siteCopy, type SiteLanguage } from "@/lib/site-i18n"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -6,7 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
 
-export function Contact() {
+export function Contact({ language }: { language: SiteLanguage }) {
+  const t = siteCopy[language].contact
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,12 +26,12 @@ export function Contact() {
     <section id="contact" className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">Get in Touch</span>
+          <span className="text-sm font-medium text-primary uppercase tracking-wider">{t.eyebrow}</span>
           <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            Let&apos;s discuss your project
+            {t.title}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Ready to start your forestry project? Contact us for a free consultation and discover how we can help.
+            {t.description}
           </p>
         </div>
 
@@ -37,7 +39,7 @@ export function Contact() {
           <div className="lg:col-span-2 space-y-8">
             <div>
               <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-foreground mb-6">
-                Contact Information
+                {t.information}
               </h3>
               
               <div className="space-y-6">
@@ -46,7 +48,7 @@ export function Contact() {
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Email</div>
+                    <div className="text-sm text-muted-foreground">{t.email}</div>
                     <a href="mailto:dendrometree@hotmail.com" className="text-foreground hover:text-primary transition-colors">
                       dendrometree@hotmail.com
                     </a>
@@ -58,7 +60,7 @@ export function Contact() {
                     <Phone className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Phone</div>
+                    <div className="text-sm text-muted-foreground">{t.phone}</div>
                     <a href="tel:" className="text-foreground hover:text-primary transition-colors">
                       (+383 45 563836)
                     </a>
@@ -70,9 +72,9 @@ export function Contact() {
                     <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Office</div>
+                    <div className="text-sm text-muted-foreground">{t.office}</div>
                     <address className="not-italic text-foreground">
-                      Kosovo, Ferizaj
+                      {t.officePlace}
                     </address>
                   </div>
                 </div>
@@ -81,10 +83,10 @@ export function Contact() {
 
             <div className="p-6 rounded-xl bg-muted border border-border">
               <h4 className="font-[family-name:var(--font-heading)] font-semibold text-foreground mb-2">
-                Response Time
+                {t.responseTitle}
               </h4>
               <p className="text-sm text-muted-foreground">
-                We typically respond to inquiries within 8 business hours. For urgent matters, please call us directly.
+                {t.responseText}
               </p>
             </div>
           </div>
@@ -94,12 +96,12 @@ export function Contact() {
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name
+                    {t.name}
                   </label>
                   <Input
                     id="name"
                     type="text"
-                    placeholder="John Smith"
+                    placeholder={t.namePlaceholder}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -107,7 +109,7 @@ export function Contact() {
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address
+                    {t.emailAddress}
                   </label>
                   <Input
                     id="email"
@@ -122,12 +124,12 @@ export function Contact() {
 
               <div>
                 <label htmlFor="organization" className="block text-sm font-medium text-foreground mb-2">
-                  Organization (Optional)
+                  {t.organization}
                 </label>
                 <Input
                   id="organization"
                   type="text"
-                  placeholder="Your company or municipality"
+                  placeholder={language === "sq" ? "Kompania ose komuna juaj" : "Your company or municipality"}
                   value={formData.organization}
                   onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                 />
@@ -135,11 +137,11 @@ export function Contact() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Project Details
+                  {t.details}
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell us about your forestry project, goals, and timeline..."
+                  placeholder={t.detailsPlaceholder}
                   rows={6}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -148,7 +150,7 @@ export function Contact() {
               </div>
 
               <Button type="submit" size="lg" className="w-full sm:w-auto">
-                Send Message
+                {t.send}
               </Button>
             </form>
           </div>

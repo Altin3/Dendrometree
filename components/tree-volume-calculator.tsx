@@ -1,4 +1,5 @@
 'use client'
+import { siteCopy, type SiteLanguage } from "@/lib/site-i18n"
 
 import { useMemo, useState } from 'react'
 import { Download, Plus, Trash2, Calculator } from 'lucide-react'
@@ -38,6 +39,8 @@ const speciesOptions: SpeciesOption[] = [
   { label: 'Pinus sylvestris', value: 'Pinus sylvestris', group: 'Conifers' },
   { label: 'Pinus nigra', value: 'Pinus nigra', group: 'Conifers' },
 ]
+
+const speciesNameSq: Record<string,string> = { "Fagus sylvatica": "Ahu", "Quercus cerris": "Qarri", "Quercus petraea": "Bungu", "Quercus frainetto": "Shpardhi", "Carpinus betulus": "Shkoza e bardhë", "Fraxinus excelsior": "Frashëri", "Picea abies": "Hormoqi", "Abies alba": "Bredhi", "Pseudotsuga menziesii": "Dugllazia", "Pinus peuce": "Molika", "Pinus heldreichii": "Rrobulli", "Pinus sylvestris": "Hartina", "Pinus nigra": "Pisha e zezë" }
 
 const DEFAULT_SPECIES = 'Fagus sylvatica'
 const DEFAULT_FORM_FACTOR = 0.45
@@ -89,7 +92,8 @@ function toCsv(rows: ResultRow[]) {
   return lines.join('\n')
 }
 
-export function TreeVolumeCalculator() {
+export function TreeVolumeCalculator({ language }: { language: SiteLanguage }) {
+  const t = siteCopy[language].calculator
   const [species, setSpecies] = useState(DEFAULT_SPECIES)
   const [dbhCm, setDbhCm] = useState('')
   const [heightM, setHeightM] = useState('')
@@ -110,7 +114,7 @@ export function TreeVolumeCalculator() {
     const height = Number(heightM)
 
     if (!dbh || !height || dbh <= 0 || height <= 0) {
-      setError('Please enter valid positive values for DBH and height.')
+      setError(t.validation)
       setLatestVolume(null)
       return
     }
@@ -125,7 +129,7 @@ export function TreeVolumeCalculator() {
     const height = Number(heightM)
 
     if (!dbh || !height || dbh <= 0 || height <= 0) {
-      setError('Please enter valid positive values for DBH and height.')
+      setError(t.validation)
       return
     }
 
@@ -179,10 +183,10 @@ export function TreeVolumeCalculator() {
               </div>
               <div>
                 <h1 className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl font-bold">
-                  Tree Volume Calculator
+                  {t.title}
                 </h1>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Generic estimator using DBH, height, and a default form factor of {DEFAULT_FORM_FACTOR}.
+                  {t.intro} {DEFAULT_FORM_FACTOR}.
                 </p>
               </div>
             </div>
@@ -192,7 +196,7 @@ export function TreeVolumeCalculator() {
             <div className="grid gap-6 md:grid-cols-3">
               <div className="space-y-2">
                 <label htmlFor="species" className="text-sm font-medium">
-                  Species
+                  {t.species}
                 </label>
                 <select
                   id="species"
@@ -200,18 +204,18 @@ export function TreeVolumeCalculator() {
                   onChange={(e) => setSpecies(e.target.value)}
                   className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <optgroup label="Broadleaves">
+                  <optgroup label={t.broadleaves}>
                     {groupedSpecies.Broadleaves.map((item) => (
                       <option key={item.value} value={item.value}>
-                        {item.label}
+                        {language === "sq" ? speciesNameSq[item.value] + " (" + item.value + ")" : item.label}
                       </option>
                     ))}
                   </optgroup>
 
-                  <optgroup label="Conifers">
+                  <optgroup label={t.conifers}>
                     {groupedSpecies.Conifers.map((item) => (
                       <option key={item.value} value={item.value}>
-                        {item.label}
+                        {language === "sq" ? speciesNameSq[item.value] + " (" + item.value + ")" : item.label}
                       </option>
                     ))}
                   </optgroup>
@@ -220,7 +224,7 @@ export function TreeVolumeCalculator() {
 
               <div className="space-y-2">
                 <label htmlFor="dbh" className="text-sm font-medium">
-                  DBH (cm)
+                  {t.dbh}
                 </label>
                 <input
                   id="dbh"
@@ -229,14 +233,14 @@ export function TreeVolumeCalculator() {
                   step="0.1"
                   value={dbhCm}
                   onChange={(e) => setDbhCm(e.target.value)}
-                  placeholder="e.g. 32.5"
+                  placeholder={t.dbhPlaceholder}
                   className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="height" className="text-sm font-medium">
-                  Height (m)
+                  {t.height}
                 </label>
                 <input
                   id="height"
@@ -245,7 +249,7 @@ export function TreeVolumeCalculator() {
                   step="0.1"
                   value={heightM}
                   onChange={(e) => setHeightM(e.target.value)}
-                  placeholder="e.g. 21.4"
+                  placeholder={t.heightPlaceholder}
                   className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 />
               </div>
@@ -253,12 +257,12 @@ export function TreeVolumeCalculator() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Button onClick={handleCalculate} className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Calculate Volume
+                {t.calculate}
               </Button>
 
               <Button onClick={handleAddResult} variant="outline" className="bg-transparent">
                 <Plus className="h-4 w-4" />
-                Add Result
+                {t.add}
               </Button>
 
               <Button
@@ -268,7 +272,7 @@ export function TreeVolumeCalculator() {
                 disabled={rows.length === 0}
               >
                 <Download className="h-4 w-4" />
-                Download CSV
+                {t.download}
               </Button>
             </div>
 
@@ -280,41 +284,40 @@ export function TreeVolumeCalculator() {
 
             {latestVolume !== null ? (
               <div className="mt-6 rounded-xl border border-border bg-muted/30 p-5">
-                <div className="text-sm text-muted-foreground">Estimated volume</div>
+                <div className="text-sm text-muted-foreground">{t.estimated}</div>
                 <div className="mt-1 text-3xl font-bold text-primary">{latestVolume.toFixed(4)} m³</div>
                 <div className="mt-2 text-sm text-muted-foreground">
-                  Method: {METHOD_NAME} · Form factor: {DEFAULT_FORM_FACTOR}
+                  {t.method}: {t.methodName} · {t.factor}: {DEFAULT_FORM_FACTOR}
                 </div>
               </div>
             ) : null}
 
             <div className="mt-8 rounded-xl border border-border bg-background/50 p-4 text-sm text-muted-foreground">
-              This calculator provides an approximate tree stem volume using a generic form-factor method. Results are
-              estimates and should not replace species-specific or regional forestry volume equations.
+              {t.note}
             </div>
 
             <div className="mt-8">
               <div className="mb-3 flex items-center justify-between gap-4">
-                <h2 className="text-lg font-semibold">Saved Results</h2>
-                <span className="text-sm text-muted-foreground">{rows.length} row(s)</span>
+                <h2 className="text-lg font-semibold">{t.saved}</h2>
+                <span className="text-sm text-muted-foreground">{rows.length} {t.rows}</span>
               </div>
 
               <div className="overflow-x-auto rounded-xl border border-border">
                 <table className="min-w-full text-sm">
                   <thead className="bg-muted/50">
                     <tr className="text-left">
-                      <th className="px-4 py-3 font-medium">Species</th>
-                      <th className="px-4 py-3 font-medium">DBH (cm)</th>
-                      <th className="px-4 py-3 font-medium">Height (m)</th>
-                      <th className="px-4 py-3 font-medium">Volume (m³)</th>
-                      <th className="px-4 py-3 font-medium">Action</th>
+                      <th className="px-4 py-3 font-medium">{t.species}</th>
+                      <th className="px-4 py-3 font-medium">{t.dbh}</th>
+                      <th className="px-4 py-3 font-medium">{t.height}</th>
+                      <th className="px-4 py-3 font-medium">{t.volume}</th>
+                      <th className="px-4 py-3 font-medium">{t.action}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {rows.length === 0 ? (
                       <tr>
                         <td colSpan={5} className="px-4 py-6 text-center text-muted-foreground">
-                          No results added yet.
+                          {t.empty}
                         </td>
                       </tr>
                     ) : (
@@ -333,7 +336,7 @@ export function TreeVolumeCalculator() {
                               className="inline-flex items-center gap-1 text-sm text-muted-foreground transition hover:text-destructive"
                             >
                               <Trash2 className="h-4 w-4" />
-                              Remove
+                              {t.remove}
                             </button>
                           </td>
                         </tr>
