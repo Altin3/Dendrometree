@@ -2,7 +2,7 @@
   {
     "slug": "inventarizimi-pyjor-dy-plane-menaxhuese-8500-ha",
     "date": "2026-11-12",
-    "status": "draft",
+    "status": "published",
     "category": {
       "sq": "Inventarizimi pyjor",
       "en": "Forest inventory"
@@ -33,20 +33,72 @@
         "DENDROMETREE – Professionalism, precision and technology in the service of forests."
       ]
     },
-    "coverImage": null,
+    "coverImage": "/activities/pylli-banner.avif",
     "images": [
       {
-        "src": "/activities/llojet-verbesh-kashtanjeve.svg",
+        "src": "/activities/grafiku-verbesh-kashtanjeve.png",
+        "kind": "chart",
         "alt": {
-          "sq": "Përbërja e llojeve kryesore drunore në NJM Vërbesh–Kashtanjevë",
-          "en": "Main tree species composition in the Vërbesh–Kashtanjevë management unit"
+          "sq": "Grafiku i llojeve kryesore drunore në NJM Vërbesh–Kashtanjevë",
+          "en": "Main tree species chart for Vërbesh–Kashtanjevë"
         }
       },
       {
-        "src": "/activities/llojet-kamenice.svg",
+        "src": "/activities/grafiku-kamenice.png",
+        "kind": "chart",
         "alt": {
-          "sq": "Përbërja e llojeve kryesore drunore në NJM V. Vrh–Kriva Reka–Kamenicë",
-          "en": "Main tree species composition in the V. Vrh–Kriva Reka–Kamenicë management unit"
+          "sq": "Grafiku i llojeve kryesore drunore në NJM V. Vrh–Kriva Reka–Kamenicë",
+          "en": "Main tree species chart for V. Vrh–Kriva Reka–Kamenicë"
+        }
+      },
+      {
+        "src": "/activities/ekipi-ne-terren.avif",
+        "kind": "photo",
+        "alt": {
+          "sq": "Ekipi profesional i DENDROMETREE gjatë punës së inventarizimit pyjor në terren",
+          "en": "DENDROMETREE field forest inventory team"
+        }
+      },
+      {
+        "src": "/activities/matja-e-drurit.avif",
+        "kind": "photo",
+        "alt": {
+          "sq": "Matja e diametrit të drurit me instrumente profesionale gjatë inventarizimit pyjor",
+          "en": "Measuring tree diameter with professional forestry instruments"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "value": "8,500 ha",
+        "icon": "area",
+        "label": {
+          "sq": "Sipërfaqe e inventarizuar",
+          "en": "Area inventoried"
+        }
+      },
+      {
+        "value": "1,615",
+        "icon": "plots",
+        "label": {
+          "sq": "Sipërfaqe provuese",
+          "en": "Sample plots"
+        }
+      },
+      {
+        "value": "8,800",
+        "icon": "trees",
+        "label": {
+          "sq": "Drurë të matur",
+          "en": "Measured trees"
+        }
+      },
+      {
+        "value": ">20",
+        "icon": "species",
+        "label": {
+          "sq": "Lloje drunore",
+          "en": "Tree species"
         }
       }
     ]

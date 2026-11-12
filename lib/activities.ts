@@ -12,7 +12,8 @@ export interface Activity {
   summary: LocalizedText
   paragraphs: Record<Language, string[]>
   coverImage?: string | null
-  images?: Array<{ src: string; alt: LocalizedText }>
+  stats?: Array<{ value: string; icon?: string; label: LocalizedText }>
+  images?: Array<{ src: string; alt: LocalizedText; kind?: "photo" | "chart" }>
 }
 
 const activities = entries as Activity[]
